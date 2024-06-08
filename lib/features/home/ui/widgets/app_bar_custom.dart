@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-
 import '../../../../core/theming/assets_manager.dart';
 import '../../../../core/theming/colors_manager.dart';
 import '../../../../core/widgets/space.dart';
@@ -24,7 +23,10 @@ Widget appBarCustom(
       backgroundColor: backgroundColor,
       stretchTriggerOffset: .5,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(32.w),
+        borderRadius: BorderRadius.only(
+          bottomLeft: Radius.circular(32.w),
+          bottomRight: Radius.circular(32.w),
+        ),
       ),
       leading: const ProfileItem(
         image: AssetsManager.memoji,
@@ -110,7 +112,10 @@ Widget appBarCustom(
             Container(
               height: MediaQuery.of(context).size.height / 2.6,
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(32.w),
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(32.w),
+                  bottomRight: Radius.circular(32.w),
+                ),
                 gradient: const LinearGradient(
                   begin: Alignment.topRight,
                   end: Alignment.bottomLeft,
