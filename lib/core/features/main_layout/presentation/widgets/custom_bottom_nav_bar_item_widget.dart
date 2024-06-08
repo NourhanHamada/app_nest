@@ -22,21 +22,24 @@ class CustomBottomNavBarItemWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        SvgPicture.asset(
-          isSelected ? navBarItem.iconName : navBarItem.disableIconName,
-        ),
-        verticalSpace(6),
-        Text(
-          title,
-          style: TextStyle(
-            fontSize: 12.sp,
-            color: isSelected ? ColorsManager.primaryColor : ColorsManager.grayColor,
+    return GestureDetector(
+      onTap: onTap,
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          SvgPicture.asset(
+            isSelected ? navBarItem.iconName : navBarItem.disableIconName,
           ),
-        ),
-      ],
+          verticalSpace(6),
+          Text(
+            title,
+            style: TextStyle(
+              fontSize: 12.sp,
+              color: isSelected ? ColorsManager.primaryColor : ColorsManager.grayColor,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
